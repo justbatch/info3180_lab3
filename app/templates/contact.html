@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div id='form_name'>
+	<h1> Contact Form </h1>
+</div>
+
+<!-- Control Structures to output the necessary fields for the form -->
+	<p> FIll in this form to contact the site owners. </p>
+
+	<form action="/contact" method="post">
+		{{ form.csrf_token }}
+		<div>
+			<!-- <label for="name">Full Name: <abbr>(Required)</abbr> </label>  -->
+			{{ form.name.label }} <span>(Required)</span>
+			{{ form.name(class="form-control") }}
+			<!-- <input type="text" id="name" name="full_name" /> -->
+		</div>
+	</br>
+		<div>
+			<!-- <label for="email">E-mail: <abbr>(Required)</abbr> </label> -->
+			 {{ form.email.label }} <span>(Required)</span>
+			 {{ form.email(class="form-control") }}
+			<!-- <input type="text" id="email" name="email_address" /> -->
+		</div>
+	</br>
+		<div>
+			<!-- <label for="subject">Subject: <abbr>(Required)</abbr> </label> -->
+			 {{ form.subject.label }} <span>(Required)</span>
+			 {{ form.subject(class="form-control") }}
+			<!-- <input type="text" id="subject" name="topic" /> -->
+		</div>
+	</br>
+		<div>
+			<!-- <label for="message">Message: <abbr>(Required)</abbr> </label> -->
+			 {{ form.message.label }} <span>(Required)</span>
+			 {{ form.message(class="form-control") }}
+			<!-- <textatrea id="message" name="text_message"></textatrea> -->
+		</div>
+	</br>
+		<button type="submit"> Send </button>
+	</form>
+
+{% endblock %}
